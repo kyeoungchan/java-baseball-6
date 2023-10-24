@@ -8,7 +8,6 @@ import baseball.domain.Result;
 import static baseball.domain.Const.FIXED_ANSWER_CIPHERS;
 
 public class Service {
-
     private final GamePlayer gamePlayer = new GamePlayer();
     private final Computer computer = new Computer();
     private final Result result = new Result();
@@ -26,10 +25,10 @@ public class Service {
     public Result calculateResult(String inputtedNumbers) {
         initData(inputtedNumbers);
 
-        for (int i = 0; i < FIXED_ANSWER_CIPHERS; i++) {
-            int gamePlayerNumber = gamePlayer.extractOneNumber(i);
-            if (computer.isStrike(gamePlayerNumber, i)) result.addStrike();
-            else if (computer.isBall(gamePlayerNumber, i)) result.addBall();
+        for (int index = 0; index < FIXED_ANSWER_CIPHERS; index++) {
+            int gamePlayerNumber = gamePlayer.extractOneNumber(index);
+            if (computer.isStrike(gamePlayerNumber, index)) result.addStrike();
+            else if (computer.isBall(gamePlayerNumber, index)) result.addBall();
         }
         return result;
     }
