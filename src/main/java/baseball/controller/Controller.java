@@ -12,13 +12,12 @@ public class Controller {
     private final Service service = new Service();
 
     public void run() {
-        while (true) {
+        do {
             outputView.startMention();
             service.initComputer();
             gamePlay();
             outputView.gameOverMention();
-            if (!willContinue()) break;
-        }
+        } while (willContinue());
     }
 
     private void gamePlay() {

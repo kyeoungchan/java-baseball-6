@@ -11,11 +11,13 @@ public class Computer {
     private final List<Integer> threeNumbers = new ArrayList<>();
 
     public void generateThreeNumbers() {
-        if (threeNumbers.size() > 0) flushNumbers();
+        flushNumbers();
 
         while (threeNumbers.size() < FIXED_ANSWER_CIPHERS) {
             int randomNumber = Randoms.pickNumberInRange(BASEBALL_START_NUMBER, BASEBALL_END_NUMBER);
-            if (!threeNumbers.contains(randomNumber)) threeNumbers.add(randomNumber);
+            if (!threeNumbers.contains(randomNumber)) {
+                threeNumbers.add(randomNumber);
+            }
         }
     }
 

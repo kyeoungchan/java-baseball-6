@@ -1,5 +1,12 @@
 package baseball.domain;
 
+import static baseball.domain.Const.ALL_BALL;
+import static baseball.domain.Const.ALL_STRIKE;
+import static baseball.domain.Const.NOTHING;
+import static baseball.domain.Const.ONLY_BALL;
+import static baseball.domain.Const.ONLY_STRIKE;
+import static baseball.domain.Const.BALL_AND_STRIKE;
+
 public class Result {
     private int ballCount;
     private int strikeCount;
@@ -21,16 +28,36 @@ public class Result {
         return strikeCount == 3;
     }
 
-    public boolean isNothing() {
+    private boolean isAllBall() {
+        return ballCount == 3;
+    }
+
+    private boolean isNothing() {
         return ballCount == 0 && strikeCount == 0;
     }
 
-    public String getResultStringFormat() {
+    @Override
+    public String toString() {
         if (isAllStrike()) {
-            return "3스트라이크";
-        } else if (isNothing()) {
-            return "낫싱";
+            return ALL_STRIKE;
         }
-        return String.format("%d볼 %d스트라이크", ballCount, strikeCount);
+
+        if (isAllBall()) {
+            return ALL_BALL;
+        }
+
+        if (isNothing()) {
+            return NOTHING;
+        }
+
+        if (strikeCount == 0) {
+            return String.format(ONLY_BALL, ballCount);
+        }
+
+        if (ballCount == 0) {
+            return String.format(ONLY_STRIKE, strikeCount);
+        }
+
+        return String.format(BALL_AND_STRIKE, ballCount, strikeCount);
     }
 }

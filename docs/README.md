@@ -51,9 +51,10 @@
   * int strikeCount
   * void addBall()
   * void addStrike()
-  * boolean isNothing()
-  * String getResultStringFormat()
   * boolean isAllStrike()
+  * private boolean isAllBall()
+  * private boolean isNothing()
+  * toString()
 * Validator
   * int parseValidatedInt(String str)
   * void validateCiphers(int value, int ciphers)

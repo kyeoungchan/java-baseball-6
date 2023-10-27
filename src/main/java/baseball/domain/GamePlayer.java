@@ -11,7 +11,7 @@ public class GamePlayer {
     private final List<Integer> threeNumbers = new ArrayList<>();
 
     public void initThreeNumbers(String inputtedNumbers) {
-        if (threeNumbers.size() > 0) flushNumbers();
+        flushNumbers();
         inputThreeNumbersString(inputtedNumbers);
     }
 
